@@ -1,4 +1,5 @@
 import { useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import useMarvelService from '../services/MarvelService';
@@ -40,7 +41,7 @@ const ComicsList = () => {
 
     function renderItems(arr) {
 
-        const items = arr.map((item) => {
+        const items = arr.map((item,i) => {
 
             let imgStyle = {'objectFit' : 'cover'};
             if(item.thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
@@ -48,8 +49,8 @@ const ComicsList = () => {
             }
 
             return (
-                <li className="comics__item" key={item.id}>
-                    <a href={item.pageURL}>
+                <li className="comics__item" key={i}>
+                    <Link to={`/comics/${item.id}`}>
                         <img 
                             src={item.thumbnail} 
                             alt="ultimate war" 
@@ -57,7 +58,7 @@ const ComicsList = () => {
                             style={imgStyle}/>
                         <div className="comics__item-name">{item.title}</div>
                         <div className="comics__item-price">{item.price}</div>
-                    </a>
+                    </Link>
                 </li>
             )
         });
@@ -88,10 +89,6 @@ const ComicsList = () => {
             </button>
         </div>
     )
-}
-
-ComicsList.propTypes = {
-    onCharSelected: PropTypes.func.isRequired
 }
 
 export default ComicsList;
