@@ -1,4 +1,4 @@
-⭐ About the project: This is a test project! The app fetches data about Marvel heroes and comics from the Marvel API. The project may contain my personal comments for the purpose of learning
+⭐ About the project: This is a test project! It multiples APIs powered by https://developer.marvel.com/. The project may contain my personal comments for the purpose of learning
 
 💻 Technologies I use:
 
